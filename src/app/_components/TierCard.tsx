@@ -3,7 +3,7 @@ import { Button } from '~/components/ui/button'
 
 function TierCard() {
   return (
-      <div className='h-[full] border border-nuetral-100 rounded-xl w-[300px] text-black p-4'>
+      <div className='h-[full] shadow-lg rounded-xl w-[300px] text-black p-4 bg-opacity-20 bg-neutral-300 bg-blur-lg backdrop-blur-xl backdrop-saturate-150'>
           <div>
               <p className='text-2xl'>Basic</p>
               <p className='font-light mt-3 text-sm'>For personal use and exploration of AI technology.</p>

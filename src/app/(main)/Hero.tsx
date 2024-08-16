@@ -8,7 +8,7 @@ function Hero() {
         <div className='sm:col-span-4 lg:col-span-8 col-span-8  xl:col-span-4   w-full'>
        
          <div className='flex flex-col justify-start sm:ml-20 mt-10 p-10 py-40'>
-            <p className='sm:text-8xl text-2xl mt-4 leading-snug'>Unlock Your Memory's Potential with Subvenio: Your Ultimate Flashcard Companion!
+            <p className='sm:text-8xl text-2xl mt-4 leading-snug'>Unlock Your Memory&#39;s Potential with Subvenio: Your Ultimate Flashcard Companion!
             </p>
           </div>
           

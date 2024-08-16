@@ -4,7 +4,7 @@ import TierCard from '../_components/TierCard'
 
 function Tiers() {
   return (
-     <div className='py-10 text-black w-full sm:px-20 px-10 hero-bg'>
+     <div className='py-10 text-black w-full sm:px-20 px-10 tier-bg '>
           <div className='flex justify-center my-20'>
             <p className='text-5xl font-semibold'>Choose Your Plan </p>
           </div>
@@ -15,10 +15,7 @@ function Tiers() {
               <TierCard />
               <TierCard />
           </div>
-         
-          
-    
-   
+
 
      </div>
   )

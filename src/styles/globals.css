@@ -85,4 +85,22 @@
     opacity: 0.3;
     z-index: -1;
   }
+
+
+
+  .tier-bg{
+     @apply bg-background text-foreground;
+     @apply relative z-0;
+     background-image: linear-gradient(140deg, #846c89 15%, #2b11873c 95%); 
+    
+  }
+
+  .tier-bg::before {
+    content: "";
+    @apply absolute top-0 left-0 w-full h-full;
+    /* background-image: url("/assets/images/mesh.png"); */
+    background-size: cover;
+    opacity: 0.3;
+    z-index: -1;
+  }
 }
