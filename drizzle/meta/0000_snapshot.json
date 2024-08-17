@@ -1,5 +1,5 @@
 {
-  "id": "6a100700-f9e0-426c-a0b7-00073348ffc5",
+  "id": "c018e1b8-0f9c-46b1-8b78-7e6a282501af",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "6",
   "dialect": "postgresql",
@@ -10,7 +10,7 @@
       "columns": {
         "id": {
           "name": "id",
-          "type": "serial",
+          "type": "varchar(191)",
           "primaryKey": true,
           "notNull": true
         },
@@ -34,9 +34,9 @@
           "notNull": true,
           "default": "'regular'"
         },
-        "collection_id": {
-          "name": "collection_id",
-          "type": "integer",
+        "collectionId": {
+          "name": "collectionId",
+          "type": "varchar(191)",
           "primaryKey": false,
           "notNull": false
         },
@@ -65,36 +65,36 @@
         "cards_collection_id_idx": {
           "name": "cards_collection_id_idx",
           "columns": [
-            "collection_id"
+            "collectionId"
           ],
           "isUnique": false
         }
       },
       "foreignKeys": {
-        "card_collection_id_collection_id_fk": {
-          "name": "card_collection_id_collection_id_fk",
+        "card_collectionId_collections_id_fk": {
+          "name": "card_collectionId_collections_id_fk",
           "tableFrom": "card",
-          "tableTo": "collection",
+          "tableTo": "collections",
           "columnsFrom": [
-            "collection_id"
+            "collectionId"
           ],
           "columnsTo": [
             "id"
           ],
-          "onDelete": "no action",
+          "onDelete": "cascade",
           "onUpdate": "no action"
         }
       },
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
-    "public.collection": {
-      "name": "collection",
+    "public.collections": {
+      "name": "collections",
       "schema": "",
       "columns": {
         "id": {
           "name": "id",
-          "type": "serial",
+          "type": "varchar(191)",
           "primaryKey": true,
           "notNull": true
         },
@@ -131,15 +131,7 @@
           "notNull": false
         }
       },
-      "indexes": {
-        "collections_name_idx": {
-          "name": "collections_name_idx",
-          "columns": [
-            "name"
-          ],
-          "isUnique": false
-        }
-      },
+      "indexes": {},
       "foreignKeys": {},
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
