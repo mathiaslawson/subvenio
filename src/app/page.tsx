@@ -15,12 +15,12 @@ export default async function Home() {
 
   return (
     <HydrateClient>
-      <main className="min-h-screen">
-        <Navbar />
+      <main className="min-h-screen mb-20">
+      
         <Hero />
         <Services />
         <Tiers />
-        <Footer />
+      
       </main>
     </HydrateClient>
   );
