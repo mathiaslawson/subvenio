@@ -18,7 +18,7 @@ export default async function Home() {
       <main className="min-h-screen mb-20">
       
         <Hero />
-        {/* <Services /> */}
+        <Services />
         <Tiers />
       
       </main>
