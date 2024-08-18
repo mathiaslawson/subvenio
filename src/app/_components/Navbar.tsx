@@ -1,6 +1,12 @@
 import Link from 'next/link'
 import React from 'react'
 import { Button } from '~/components/ui/button'
+import {
+  SignInButton,
+  SignedIn,
+  SignedOut,
+  UserButton
+} from '@clerk/nextjs'
 
 function Navbar() {
   return (
@@ -13,7 +19,12 @@ function Navbar() {
               <Link href='/collections'>
               <p>Collections</p>
               </Link>
-              <Button>SignIn</Button>
+              <SignedOut>
+            <SignInButton />
+          </SignedOut>
+          <SignedIn>
+            <UserButton/>
+          </SignedIn>
           </div>
       </div>
    
