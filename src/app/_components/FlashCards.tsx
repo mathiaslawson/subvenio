@@ -9,37 +9,31 @@ interface FlashCard {
   id: string;
   question: string;
   answer: string;
-  collection_name: string
+  collection_name: string;
 }
 
 export function FlashCards({data} : {data: FlashCard}) {
   return (
     <>
       <div className="py-20 flex flex-col lg:flex-row items-center justify-center bg-white dark:bg-black w-full gap-4 mx-auto px-8">
-        <Card title={(data?.answer ?? "Answer").toString()} icon={
+        <Card title={<p className="text-center">{ (data?.answer ?? "Answer").toString()}</p>} icon={
           <div className="flex flex-col gap-20">
-          <p className="font-bold">
+          
+
+            <p className="text-neutral-300 font-extrabold text-3xl">{data?.collection_name}</p>
+            
+
+            <p className="font-bold text-2xl">
             {
             (data?.question ?? "Question").toString()
           }
           </p>
-
-          <p className="text-neutral-300 font-extrabold text-2xl">{data?.collection_name}</p>
         </div>}>
           <CanvasRevealEffect
             animationSpeed={5.1}
             containerClassName="bg-emerald-900"
           />
         </Card>
-       
-       
-        {/* <Card title="Munni is Aditi" icon={<AceternityIcon />}>
-          <CanvasRevealEffect
-            animationSpeed={3}
-            containerClassName="bg-sky-600"
-            colors={[[125, 211, 252]]}
-          />
-        </Card> */}
       </div>
     </>
   );
@@ -50,7 +44,7 @@ const Card = ({
   icon,
   children,
 }: {
-  title: string;
+  title: React.ReactNode;
   icon: React.ReactNode;
   children?: React.ReactNode;
 }) => {
@@ -87,28 +81,6 @@ const Card = ({
         </h2>
       </div>
     </div>
-  );
-};
-
-const AceternityIcon = () => {
-  return (
-    <svg
-      width="66"
-      height="65"
-      viewBox="0 0 66 65"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className="h-10 w-10 text-black dark:text-white group-hover/canvas-card:text-white "
-    >
-      <path
-        d="M8 8.05571C8 8.05571 54.9009 18.1782 57.8687 30.062C60.8365 41.9458 9.05432 57.4696 9.05432 57.4696"
-        stroke="currentColor"
-        strokeWidth="15"
-        strokeMiterlimit="3.86874"
-        strokeLinecap="round"
-        style={{ mixBlendMode: "darken" }}
-      />
-    </svg>
   );
 };
 
