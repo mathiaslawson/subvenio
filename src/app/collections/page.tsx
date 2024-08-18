@@ -27,8 +27,11 @@ export default async function Home() {
       </div>
       <div className="pt-10 grid grid-cols-4 gap-10">
         {cards.length > 0 ? (
-          cards.map((card, index) => (
-            <CollectionCard key={index} card={{ ...card, name: card.name ?? '' }} />
+              cards.map((card, index) => (
+                 <Link href={`/cards/${card.id}`}  key={index}>
+                    <CollectionCard card={{ ...card, name: card.name ?? '' }} />
+                 </Link>
+          
           ))
         ) : (
           <p>No cards available</p>
