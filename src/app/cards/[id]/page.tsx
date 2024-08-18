@@ -23,7 +23,7 @@ export default async function CollectionCards({ params }: { params: { id: string
   return (
     <main className="min-h-screen pt-20 mb-20">
       <h1 className="text-center mt-10 font-semibold text-neutral-800 text-2xl">{collectionName}</h1>
-      <div className="pt-10 grid grid-cols-4 gap-10">
+      <div className="pt-10 flex flex-row gap-10 flex-wrap justify-center">
         {collectionCards.length > 0 ? (
           collectionCards.map((card, index) => (
             <div key={index}>
