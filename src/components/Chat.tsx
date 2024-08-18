@@ -46,7 +46,7 @@ export default function Chat() {
       <div className="flex justify-center mt-10">
         <form onSubmit={handleSubmit}>
           <input
-            className="border border-neutral-200 shadow-md p-2 rounded-md w-[500px]"
+            className="border border-neutral-200 shadow-md p-2 rounded-md sm:w-[500px] w-[300px]"
             value={input}
             placeholder="Ask me to Generate Flash cards on any topic for you..."
             onChange={handleInputChange}

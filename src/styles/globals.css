@@ -103,4 +103,67 @@
     opacity: 0.3;
     z-index: -1;
   }
+
+
+  .ben-bg{
+     @apply bg-background text-foreground;
+     @apply relative z-0;
+  }
+
+  .ben-bg::before {
+    content: "";
+    @apply absolute top-0 left-0 w-full h-full;
+    background-image: url("/assets/images/ben2.png");
+    background-size: cover;
+    opacity: 0.8;
+    z-index: -1;
+  }
+
+  .ben3-bg{
+     @apply bg-background text-foreground;
+     @apply relative z-0;
+     background-image: linear-gradient(180deg, #933b3b 15%, #3e2222 95%); 
+    
+  }
+
+  .ben3-bg::before {
+    content: "";
+    @apply absolute top-0 left-0 w-full h-full;
+    background-image: url("/assets/images/ben3.png");
+    background-size: cover;
+    opacity: 1;
+    z-index: -1;
+  }
+
+  .ben4-bg{
+     @apply bg-background text-foreground;
+     @apply relative z-0;
+     background-image: linear-gradient(180deg, #933b3b 15%, #3e2222 95%); 
+    
+  }
+
+  .ben4-bg::before {
+    content: "";
+    @apply absolute top-0 left-0 w-full h-full;
+    background-image: url("/assets/images/ben4.png");
+    background-size: cover;
+    opacity: 0.5;
+    z-index: -1;
+  }
+
+   .ben5-bg{
+     @apply bg-background text-foreground;
+     @apply relative z-0;
+     background-image: linear-gradient(180deg, #933b3b 15%, #3e2222 95%); 
+    
+  }
+
+  .ben5-bg::before {
+    content: "";
+    @apply absolute top-0 left-0 w-full h-full;
+    background-image: url("/assets/images/ben5.png");
+    background-size: cover;
+    opacity: 0.9;
+    z-index: -1;
+  }
 }

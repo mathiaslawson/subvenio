@@ -25,7 +25,7 @@ export default async function Home() {
           <Button className="rounded-2xl shadow-md">Generate More Flash Cards</Button>
         </Link>
       </div>
-      <div className="pt-10 grid grid-cols-4 gap-10">
+      <div className="px-10 flex flex-row gap-10 flex-wrap justify-center">
         {cards.length > 0 ? (
               cards.map((card, index) => (
                  <Link href={`/cards/${card.id}`}  key={index}>
