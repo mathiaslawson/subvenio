@@ -38,36 +38,36 @@ export async function POST(req: Request) {
   });
   
 
-  // const collection_name: unknown = result.object.notifications[0]?.collection_name;
+  const collection_name: unknown = result.object.notifications[0]?.collection_name;
 
-  //  let collection = await db
-  //    .select()
-  //    .from(collections)
-  //    .where(eq(collections.name, collection_name as string))
-  //    .limit(1);
+   let collection = await db
+     .select()
+     .from(collections)
+     .where(eq(collections.name, collection_name as string))
+     .limit(1);
   
-  // if (collection.length === 0) {
-  //   const [newCollection] = await db
-  //     .insert(collections)
-  //     .values({
-  //       id: nanoid(),
-  //       name: collection_name as string,
-  //     })
-  //     .returning();
-  //   collection = [newCollection] as typeof collection;
-  // }
+  if (collection.length === 0) {
+    const [newCollection] = await db
+      .insert(collections)
+      .values({
+        id: nanoid(),
+        name: collection_name as string,
+      })
+      .returning();
+    collection = [newCollection] as typeof collection;
+  }
 
-  // const collectionId = collection[0]?.id;
+  const collectionId = collection[0]?.id;
 
-  // const genCards = await db.insert(cards).values(
-  //   result.object.notifications.map(card => ({
-  //      id: nanoid(),
-  //      question: card.question,
-  //      answer: card.answer,
-  //      collectionId: collectionId,
-  //   }))
+  const genCards = await db.insert(cards).values(
+    result.object.notifications.map(card => ({
+       id: nanoid(),
+       question: card.question,
+       answer: card.answer,
+       collectionId: collectionId,
+    }))
     
-  //  )
+   )
  
   // console.log(`Inserted ${genCards.length} cards`);
   
