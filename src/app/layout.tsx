@@ -13,7 +13,7 @@ import { Toaster } from "~/components/ui/sonner"
 
 export const metadata: Metadata = {
   title: "Subvenio",
-  description: "Built The Subvenio Team",
+  description: "Introducing our cutting-edge web app that makes studying smarter and more efficient! Whether you're a student preparing for exams or just someone looking to learn new topics, our AI-powered flashcard generator has you covered",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
