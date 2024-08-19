@@ -5,7 +5,9 @@ import {
   timestamp,
   pgTable,
   pgEnum,
+  uuid,
   integer,
+  serial,
   boolean, // Add this line to import the boolean function
 } from "drizzle-orm/pg-core";
 import { createSelectSchema } from "drizzle-zod";
@@ -21,6 +23,7 @@ export const collections = pgTable("collections", {
     .$defaultFn(() => nanoid()),
   name: varchar("name", { length: 256 }),
   description: varchar("description", { length: 512 }),
+  userId: varchar("userId").notNull(),
   isPaid: boolean("is_paid").default(false).notNull(),
   createdAt: timestamp("created_at", { withTimezone: true })
     .default(sql`CURRENT_TIMESTAMP`)

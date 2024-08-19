@@ -21,14 +21,19 @@ export default function Chat() {
 
 
 
-  const [flashcards, setFlashCards] = useState<FlashCard | null>(null);
+  const [flashcards, setFlashCards] = useState<Card[] | null>(null);
 
   const { messages, input, handleInputChange, handleSubmit, data, isLoading } = useChat({
     onResponse: async (response) => {
+
+      console.log(response)
+
+
+
       if (response.ok) {
         try {
           const data: unknown = await response.json(); 
-          setFlashCards(data as FlashCard);
+          setFlashCards(data as Card[]);
           console.log('Received data:', data);
         } catch (error) {
           console.error('Error parsing JSON:', error);
@@ -59,12 +64,12 @@ export default function Chat() {
       <div className="flex justify-center mt-10">
         {isLoading ? (
           <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-neutral-500 border-solid"></div>
-        ) : flashcards?.notifications && flashcards.notifications.length > 0 ? (
+        ) : flashcards && flashcards.length > 0 ? (
             <>
              
             <div className='flex justify-center flex-wrap'>
              
-            {flashcards?.notifications.map((item: Card) => (
+            {flashcards?.map((item: Card) => (
               <div key={item.id} className='flex justify-center'>
              
                 <FlashCards data={item} />
