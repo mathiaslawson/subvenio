@@ -9,6 +9,7 @@ import Footer from "./_components/Footer";
 import {
   ClerkProvider,
 } from '@clerk/nextjs'
+import { Toaster } from "~/components/ui/sonner"
 
 export const metadata: Metadata = {
   title: "Subvenio",
@@ -27,7 +28,8 @@ export default function RootLayout({
           <Navbar />
           {children}
           {/* <Footer /> */}
-        </TRPCReactProvider>
+          </TRPCReactProvider>
+          <Toaster />
       </body>
     </html>
     </ClerkProvider>
