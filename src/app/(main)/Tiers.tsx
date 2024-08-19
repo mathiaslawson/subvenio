@@ -1,15 +1,32 @@
+'use client'
+
 import React from 'react'
 import { Bento } from '~/app/_components/Bento'
+import dynamic from 'next/dynamic'
 import TierCard from '../_components/TierCard'
+import convertToSubcurrency from "~/lib/utils";
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
+import CheckoutPage from '../_components/CheckoutButton'
+
+
+if (process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY === undefined) {
+  throw new Error("NEXT_PUBLIC_STRIPE_PUBLIC_KEY is not defined");
+}
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
+
+
+
 
 function Tiers() {
 
-
+const amount = 49.99;
+  
   const tiers = [
     {
       name: 'Basic',
-      description: 'A 5 day free trial service',
-      price: '0',
+      description: '1 month access to all feature',
+      price: 1,
       benefits: [
         'Unlimited Flash Cards',
         'Unlimited Stores',
@@ -21,8 +38,8 @@ function Tiers() {
     },
     {
       name: 'Mid',
-      description: '1 month access to all features',
-      price: '5',
+      description: '3 month access to all features',
+      price: 5,
       benefits: [
         'Unlimited Flash Cards',
         'Unlimited Stores',
@@ -35,7 +52,7 @@ function Tiers() {
     {
       name: 'Pro',
       description: '5 months access to all features',
-      price: '10',
+      price: 10,
       benefits: [
         'Unlimited Flash Cards',
         'Unlimited Stores',
@@ -54,7 +71,9 @@ function Tiers() {
             <p className='text-5xl font-semibold'>Choose Your Plan </p>
           </div>
          
-          
+     
+     
+
           <div className='flex justify-center gap-10 flex-wrap'>
         {
           tiers.map((tier, index) => {
