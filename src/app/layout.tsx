@@ -2,7 +2,7 @@ import "~/styles/globals.css";
 
 import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
-
+import { PHProvider } from './provider'
 import { TRPCReactProvider } from "~/trpc/react";
 import Navbar from "./_components/Navbar";
 import Footer from "./_components/Footer";
@@ -10,6 +10,12 @@ import {
   ClerkProvider,
 } from '@clerk/nextjs'
 import { Toaster } from "~/components/ui/sonner"
+import dynamic from 'next/dynamic'
+
+const PostHogPageView = dynamic(() => import('./PostHogPageView'), {
+  ssr: false,
+})
+
 
 export const metadata: Metadata = {
   title: "Subvenio",
@@ -22,15 +28,18 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <ClerkProvider>
-       <html lang="en" className={`${GeistSans.variable}`}>
+      <html lang="en" className={`${GeistSans.variable}`}>
+          <PHProvider>
       <body>
         <TRPCReactProvider>
           <Navbar />
           {children}
           {/* <Footer /> */}
           </TRPCReactProvider>
-          <Toaster />
-      </body>
+            <Toaster />
+              <PostHogPageView /> 
+          </body>
+          </PHProvider>
     </html>
     </ClerkProvider>
    
